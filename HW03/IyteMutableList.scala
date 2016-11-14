@@ -1,11 +1,11 @@
 class IyteMutableList {
-  private class Node(var data:Int, var next: Node)
+  class Node(var data:Int, var next: Node)
   private var head: Node = null
   private var last: Node = null
   
-  def add( data: Int): Unit ={
+  def add( data: Int): {
     if(head==null){
-      head= new Node(data,head)
+      head= new Node(data,null)
       last=head
     }else{
       last.next=new Node(data,null)
@@ -15,11 +15,11 @@ class IyteMutableList {
   }
   override def toString: String= {
     var result:String = ""
-    var rover = head
-    while(rover.next !=null){
-      result=result+rover.data+","
+    var temp = head
+    while(temp.next !=null){
+      result=result+temp.data+","
       
-      rover=rover.next
+      temp=temp.next
     }
       result=result+last.data
       result
